@@ -123,6 +123,11 @@ exit /b 0
 :pushall
     set /p msg="Commit MSG: "
 
+    cd %root_dir%
+    git add .
+    git commit -m "%msg%"
+    git push -u origin main
+
     cd %utils_proj_dir%
     git add .
     git commit -m "%msg%"
