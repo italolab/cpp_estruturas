@@ -1,10 +1,14 @@
 #ifndef TESTE_ERROR_H
 #define TESTE_ERROR_H
 
-#if BUILD_DLL
-#define TESTE_ERROR_API __declspec(dllexport)
+#ifdef _WIN32
+    #if BUILDING_DLL
+        #define TESTE_ERROR_API __declspec(dllexport)
+    #else
+        #define TESTE_ERROR_API __declspec(dllimport)
+    #endif
 #else
-#define TESTE_ERROR_API __declspec(dllimport)
+    #define TESTE_ERROR_API
 #endif
 
 #include <stdexcept>

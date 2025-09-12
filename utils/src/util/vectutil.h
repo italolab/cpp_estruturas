@@ -1,10 +1,14 @@
 #ifndef VECTOR_UTIL_H
 #define VECTOR_UTIL_H
 
-#if BUILDING_DLL
-#define VECTOR_UTIL_API __declspec(dllexport)
+#ifdef _WIN32
+    #if BUILDING_DLL
+        #define VECTOR_UTIL_API __declspec(dllexport)
+    #else
+        #define VECTOR_UTIL_API __declspec(dllimport)
+    #endif
 #else
-#define VECTOR_UTIL_API __declspec(dllimport)
+    #define VECTOR_UTIL_API
 #endif
 
 #include <iostream>

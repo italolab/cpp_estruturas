@@ -1,10 +1,14 @@
 #ifndef ID_OBJETO_H
 #define ID_OBJETO_H
 
-#if BUILDING_DLL
-#define ID_OBJETO_API __declspec(dllexport)
+#ifdef _WIN32
+	#if BUILDING_DLL
+		#define ID_OBJETO_API __declspec(dllexport)
+	#else
+		#define ID_OBJETO_API __declspec(dllimport)
+	#endif
 #else
-#define ID_OBJETO_API __declspec(dllimport)
+	#define ID_OBJETO_API
 #endif
 
 #include "Objeto.h"

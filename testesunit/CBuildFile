@@ -10,9 +10,15 @@ src.dir=src
 bin.dir=bin/Release
 obj.dir=obj/Release
 
-compiler.params=-Wall -O2 -std=c++17
+IF os == "windows"
+    compiler.params=-Wall -O2 -std=c++17
+ENDIF
+IF os != "windows"
+    compiler.params=-Wall -O2 -std=c++17 -fPIC
+ENDIF
+
 linker.params=-s
 
 IF os=="windows"
-	defines=BUILD_DLL
+	defines=BUILDING_DLL
 ENDIF

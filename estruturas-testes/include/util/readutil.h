@@ -1,10 +1,14 @@
 #ifndef READ_UTIL_H
 #define READ_UTIL_H
 
-#if BUILDING_DLL
-#define READUTIL_API __declspec(dllexport)
+#ifdef _WIN32
+    #if BUILDING_DLL
+        #define READUTIL_API __declspec(dllexport)
+    #else
+        #define READUTIL_API __declspec(dllimport)
+    #endif
 #else
-#define READUTIL_API __declspec(dllimport)
+    #define READUTIL_API
 #endif
 
 #include <iostream>

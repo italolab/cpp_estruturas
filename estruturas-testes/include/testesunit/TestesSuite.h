@@ -1,10 +1,14 @@
 #ifndef SUITE_DE_TESTES_H
 #define SUITE_DE_TESTES_H
 
-#if BUILD_DLL
-#define SUITE_DE_TESTES_API __declspec(dllexport)
+#ifdef _WIN32
+    #if BUILDING_DLL
+        #define SUITE_DE_TESTES_API __declspec(dllexport)
+    #else
+        #define SUITE_DE_TESTES_API __declspec(dllimport)
+    #endif
 #else
-#define SUITE_DE_TESTES_API __declspec(dllimport)
+    #define SUITE_DE_TESTES_API
 #endif
 
 #include <string>

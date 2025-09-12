@@ -13,7 +13,7 @@ IF os!="windows"
     $dl_ext=so
 ENDIF
 
-build.files=lib/libestruturas.dll lib/libtestesunit.dll lib/libutils.dll
+build.files=lib/libestruturas.$(dl_ext) lib/libtestesunit.$(dl_ext) lib/libutils.$(dl_ext)
 
 src.dir=src
 bin.dir=bin/Release
@@ -35,17 +35,24 @@ proc compilaECopiaLibs
     mkdir lib
     mkdir include
 
-    @..\cbuild.exe buildall --working-dir=../Estruturas
-    @..\cbuild.exe buildall --working-dir=../TestesUnit
-    @..\cbuild.exe buildall --working-dir=../Utils
+    IF os == "windows"
+        @..\cbuild.exe buildall --working-dir=../estruturas
+        @..\cbuild.exe buildall --working-dir=../testesunit
+        @..\cbuild.exe buildall --working-dir=../utils
+    ENDIF
+    IF os != "windows"
+        @../cbuild buildall --working-dir=../estruturas
+        @../cbuild buildall --working-dir=../testesunit
+        @../cbuild buildall --working-dir=../utils
+    ENDIF
 
-    cp ../Estruturas/build/libestruturas.$(dl_ext) lib
-    cp ../TestesUnit/build/libtestesunit.$(dl_ext) lib
-    cp ../Utils/build/libutils.$(dl_ext) lib
+    cp ../estruturas/build/libestruturas.$(dl_ext) lib
+    cp ../testesunit/build/libtestesunit.$(dl_ext) lib
+    cp ../utils/build/libutils.$(dl_ext) lib
 
-    cp -r ../Estruturas/src/**/*.h include
-    cp -r ../TestesUnit/src/**/*.h include
-    cp -r ../Utils/src/**/*.h include
+    cp -r ../estruturas/src/**/*.h include
+    cp -r ../testesunit/src/**/*.h include
+    cp -r ../utils/src/**/*.h include
 endproc
 
 task compile before
@@ -57,10 +64,13 @@ task compileall before
 endtask
 
 task finish after
-    IF os=="windows"
-        @.\build\estruturastestes.exe
-    ENDIF
-    IF os!="windows"
-        @./build/estruturastestes
-    ENDIF
+    shellbegin
+        export LD_LIBRARY_PATH=lib:$LD_LIBRARY_PATH
+        IF os=="windows"
+            .\build\estruturastestes.exe
+        ENDIF
+        IF os!="windows"
+            ./build/estruturastestes
+        ENDIF
+    endshell
 endtask

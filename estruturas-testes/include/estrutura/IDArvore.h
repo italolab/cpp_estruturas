@@ -1,10 +1,14 @@
-#ifndef ID_ARVORE_H
+#ifndef ID_ARVORE_H 
 #define ID_ARVORE_H
 
-#if BUILDING_DLL
-#define ID_ARVORE_API __declspec(dllexport)
+#ifdef _WIN32
+	#if BUILDING_DLL
+		#define ID_ARVORE_API __declspec(dllexport)
+	#else
+		#define ID_ARVORE_API __declspec(dllimport)
+	#endif
 #else
-#define ID_ARVORE_API __declspec(dllimport)
+	#define ID_ARVORE_API
 #endif
 
 #include "Arvore.h"

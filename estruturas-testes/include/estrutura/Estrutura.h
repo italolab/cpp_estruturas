@@ -1,10 +1,14 @@
 #ifndef ESTRUTURA_H
 #define ESTRUTURA_H
 
-#if BUILDING_DLL
-#define ESTRUTURA_API __declspec(dllexport)
+#ifdef _WIN32
+	#if BUILDING_DLL
+		#define ESTRUTURA_API __declspec(dllexport)
+	#else
+		#define ESTRUTURA_API __declspec(dllimport)
+	#endif
 #else
-#define ESTRUTURA_API __declspec(dllimport)
+	#define ESTRUTURA_API
 #endif
 
 #include "Objeto.h"

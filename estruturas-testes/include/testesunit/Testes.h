@@ -1,10 +1,14 @@
 #ifndef TESTES_H
 #define TESTES_H
 
-#if BUILD_DLL
-#define TESTES_API __declspec(dllexport)
+#ifdef _WIN32
+    #if BUILDING_DLL
+        #define TESTES_API __declspec(dllexport)
+    #else
+        #define TESTES_API __declspec(dllimport)
+    #endif
 #else
-#define TESTES_API __declspec(dllimport)
+    #define TESTES_API
 #endif
 
 #include "TestesResult.h"

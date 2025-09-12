@@ -1,10 +1,14 @@
 #ifndef STR_UTIL_H
 #define STR_UTIL_H
 
-#if BUILDING_DLL
-#define STRUTIL_API __declspec(dllexport)
+#ifdef _WIN32
+    #if BUILDING_DLL
+        #define STRUTIL_API __declspec(dllexport)
+    #else
+        #define STRUTIL_API __declspec(dllimport)
+    #endif
 #else
-#define STRUTIL_API __declspec(dllimport)
+    #define STRUTIL_API
 #endif
 
 #include <iostream>

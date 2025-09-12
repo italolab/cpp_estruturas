@@ -1,10 +1,14 @@
 #ifndef CAMPO_COMPARADOR_H
 #define CAMPO_COMPARADOR_H
 
-#if BUILDING_DLL
-#define CAMPO_COMPARADOR_API __declspec(dllexport)
+#ifdef _WIN32
+	#if BUILDING_DLL
+	#define CAMPO_COMPARADOR_API __declspec(dllexport)
+	#else
+	#define CAMPO_COMPARADOR_API __declspec(dllimport)
+	#endif
 #else
-#define CAMPO_COMPARADOR_API __declspec(dllimport)
+	#define CAMPO_COMPARADOR_API
 #endif
 
 #include "../Objeto.h"

@@ -1,10 +1,14 @@
 #ifndef LISTA_H
 #define LISTA_H
 
-#if BUILDING_DLL
-#define LISTA_API __declspec(dllexport)
+#ifdef _WIN32
+	#if BUILDING_DLL
+		#define LISTA_API __declspec(dllexport)
+	#else
+		#define LISTA_API __declspec(dllimport)
+	#endif
 #else
-#define LISTA_API __declspec(dllimport)
+	#define LISTA_API
 #endif
 
 #include "Objeto.h"

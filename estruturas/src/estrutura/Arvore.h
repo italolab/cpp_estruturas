@@ -1,10 +1,14 @@
 #ifndef ARVORE_H
 #define ARVORE_H
 
-#if BUILDING_DLL
-#define ARVORE_API __declspec(dllexport)
+#ifdef _WIN32
+	#if BUILDING_DLL
+		#define ARVORE_API __declspec(dllexport)
+	#else
+		#define ARVORE_API __declspec(dllimport)
+	#endif
 #else
-#define ARVORE_API __declspec(dllimport)
+	#define ARVORE_API
 #endif
 
 #include "Objeto.h"

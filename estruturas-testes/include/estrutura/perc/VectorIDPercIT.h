@@ -1,10 +1,14 @@
 #ifndef VECTOR_ID_PERC_IT_H
 #define VECTOR_ID_PERC_IT_H
 
-#if BUILDING_DLL
-#define VECTOR_ID_PERC_IT_API __declspec(dllexport)
+#ifdef _WIN32
+	#if BUILDING_DLL
+		#define VECTOR_ID_PERC_IT_API __declspec(dllexport)
+	#else
+		#define VECTOR_ID_PERC_IT_API __declspec(dllimport)
+	#endif
 #else
-#define VECTOR_ID_PERC_IT_API __declspec(dllimport)
+	#define VECTOR_ID_PERC_IT_API
 #endif
 
 #include "PercIT.h"
