@@ -65,11 +65,11 @@ endtask
 
 task finish after
     shellbegin
-        export LD_LIBRARY_PATH=lib:$LD_LIBRARY_PATH
         IF os=="windows"
             .\build\estruturastestes.exe
         ENDIF
         IF os!="windows"
+            export LD_LIBRARY_PATH=lib:$LD_LIBRARY_PATH
             ./build/estruturastestes
         ENDIF
     endshell
