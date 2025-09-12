@@ -1,0 +1,18 @@
+
+IF os=="windows"
+    output.file.name=libtestesunit.dll
+ENDIF
+IF os!="windows"
+    output.file.name=libtestesunit.so
+ENDIF
+
+src.dir=src
+bin.dir=bin/Release
+obj.dir=obj/Release
+
+compiler.params=-Wall -O2 -std=c++17
+linker.params=-s
+
+IF os=="windows"
+	defines=BUILD_DLL
+ENDIF

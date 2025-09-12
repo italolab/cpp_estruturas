@@ -1,0 +1,13 @@
+C:/Users/italo/workspace-cpp/dlls/TestesUnit/src/testesunit/Testes.h=1754245326
+C:/Users/italo/workspace-cpp/dlls/TestesUnit/src/testesunit/TestesGrupo.cpp=1754245303
+C:/Users/italo/workspace-cpp/dlls/TestesUnit/src/testesunit/TestesGrupo.h=1754245159
+C:/Users/italo/workspace-cpp/dlls/TestesUnit/src/testesunit/TestesMenu.cpp=1754245387
+C:/Users/italo/workspace-cpp/dlls/TestesUnit/src/testesunit/TestesMenu.h=1754245388
+C:/Users/italo/workspace-cpp/dlls/TestesUnit/src/testesunit/TestesResult.cpp=1754224247
+C:/Users/italo/workspace-cpp/dlls/TestesUnit/src/testesunit/TestesResult.h=1754225929
+C:/Users/italo/workspace-cpp/dlls/TestesUnit/src/testesunit/TestesSuite.cpp=1754245346
+C:/Users/italo/workspace-cpp/dlls/TestesUnit/src/testesunit/TestesSuite.h=1754245336
+C:/Users/italo/workspace-cpp/dlls/TestesUnit/src/testesunit/teste_error.cpp=1753985402
+C:/Users/italo/workspace-cpp/dlls/TestesUnit/src/testesunit/teste_error.h=1753996784
+C:/Users/italo/workspace-cpp/dlls/TestesUnit/src/testesunit/testesunit.cpp=1754074659
+C:/Users/italo/workspace-cpp/dlls/TestesUnit/src/testesunit/testesunit.h=1754001410

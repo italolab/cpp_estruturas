@@ -1,0 +1,18 @@
+
+IF os=="windows"
+    output.file.name=libestruturas.dll
+ENDIF
+IF os!="windows"
+    output.file.name=libestruturas.so
+ENDIF
+
+src.dir=src
+bin.dir=bin/Release
+obj.dir=obj/Release
+
+compiler.params=-Wall -O2 -std=c++17
+linker.params=
+
+IF os=="windows"
+	defines=BUILDING_DLL
+ENDIF

@@ -1,0 +1,15 @@
+C:/Users/italo/workspace-cpp/dlls/Utils/src/util/arrayutil.cpp=1753910961
+C:/Users/italo/workspace-cpp/dlls/Utils/src/util/arrayutil.h=1753910903
+C:/Users/italo/workspace-cpp/dlls/Utils/src/util/comp/Comparador.h=1753893552
+C:/Users/italo/workspace-cpp/dlls/Utils/src/util/comp/MaiorComparador.cpp=1753894538
+C:/Users/italo/workspace-cpp/dlls/Utils/src/util/comp/MaiorComparador.h=1753893863
+C:/Users/italo/workspace-cpp/dlls/Utils/src/util/comp/MenorComparador.cpp=1753894529
+C:/Users/italo/workspace-cpp/dlls/Utils/src/util/comp/MenorComparador.h=1753893838
+C:/Users/italo/workspace-cpp/dlls/Utils/src/util/numutil.cpp=1753898140
+C:/Users/italo/workspace-cpp/dlls/Utils/src/util/numutil.h=1753898247
+C:/Users/italo/workspace-cpp/dlls/Utils/src/util/readutil.cpp=1753898165
+C:/Users/italo/workspace-cpp/dlls/Utils/src/util/readutil.h=1753898274
+C:/Users/italo/workspace-cpp/dlls/Utils/src/util/strutil.cpp=1753898299
+C:/Users/italo/workspace-cpp/dlls/Utils/src/util/strutil.h=1753898291
+C:/Users/italo/workspace-cpp/dlls/Utils/src/util/vectutil.cpp=1753913839
+C:/Users/italo/workspace-cpp/dlls/Utils/src/util/vectutil.h=1753911139

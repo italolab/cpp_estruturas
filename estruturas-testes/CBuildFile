@@ -1,0 +1,66 @@
+
+IF os=="windows"
+    output.file.name=estruturastestes.exe
+ENDIF
+IF os!="windows"
+    output.file.name=estruturastestes
+ENDIF
+
+IF os=="windows"
+    $dl_ext=dll
+ENDIF
+IF os!="windows"
+    $dl_ext=so
+ENDIF
+
+build.files=lib/libestruturas.dll lib/libtestesunit.dll lib/libutils.dll
+
+src.dir=src
+bin.dir=bin/Release
+obj.dir=obj/Release
+
+compiler.params=-Wall -fexceptions -O2 -std=c++17
+linker.params=-s
+
+lib.dirs=lib
+include.dirs=include
+libs=estruturas testesunit utils
+
+task link verbose;
+
+proc compilaECopiaLibs
+    rm -r lib
+    rm -r include
+
+    mkdir lib
+    mkdir include
+
+    @..\cbuild.exe buildall --working-dir=../Estruturas
+    @..\cbuild.exe buildall --working-dir=../TestesUnit
+    @..\cbuild.exe buildall --working-dir=../Utils
+
+    cp ../Estruturas/build/libestruturas.$(dl_ext) lib
+    cp ../TestesUnit/build/libtestesunit.$(dl_ext) lib
+    cp ../Utils/build/libutils.$(dl_ext) lib
+
+    cp -r ../Estruturas/src/**/*.h include
+    cp -r ../TestesUnit/src/**/*.h include
+    cp -r ../Utils/src/**/*.h include
+endproc
+
+task compile before
+    call compilaECopiaLibs
+endtask
+
+task compileall before
+    call compilaECopiaLibs
+endtask
+
+task finish after
+    IF os=="windows"
+        @.\build\estruturastestes.exe
+    ENDIF
+    IF os!="windows"
+        @./build/estruturastestes
+    ENDIF
+endtask
