@@ -36,14 +36,14 @@ proc compilaECopiaLibs
     mkdir include
 
     IF os == "windows"
-        @..\cbuild.exe buildall --working-dir=../estruturas
-        @..\cbuild.exe buildall --working-dir=../testesunit
-        @..\cbuild.exe buildall --working-dir=../utils
+        @..\foxmake.exe buildall --working-dir=../estruturas
+        @..\foxmake.exe buildall --working-dir=../testesunit
+        @..\foxmake.exe buildall --working-dir=../utils
     ENDIF
     IF os != "windows"
-        @../cbuild buildall --working-dir=../estruturas
-        @../cbuild buildall --working-dir=../testesunit
-        @../cbuild buildall --working-dir=../utils
+        @../foxmake buildall --working-dir=../estruturas
+        @../foxmake buildall --working-dir=../testesunit
+        @../foxmake buildall --working-dir=../utils
     ENDIF
 
     cp ../estruturas/build/libestruturas.$(dl_ext) lib
